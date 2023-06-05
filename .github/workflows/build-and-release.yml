@@ -82,6 +82,8 @@ jobs:
           sed -i '' -e "s#APPSTORE_SIRI_INTENTS_EXTENSION_PROVISIONING_PROFILE_SPECIFIER=\"Vector Siri Intents: App Store\"#APPSTORE_SIRI_INTENTS_EXTENSION_PROVISIONING_PROFILE_SPECIFIER=\"${SIRI_INTENTS_PROVISIONING_PROFILE_NAME}\"#g" fastlane/.env.default
           
           sed -i '' -e "s#TEAM_ID=7J4U792NQT#TEAM_ID=${TEAM_ID}#g" fastlane/.env.default
+
+          sed -i '' -e "s#deliver()#deliver(skip_metadata: true)#g" fastlane/Fastfile
         
         env:
           BUNDLE_DISPLAY_NAME: ${{ secrets.BUNDLE_DISPLAY_NAME }}
